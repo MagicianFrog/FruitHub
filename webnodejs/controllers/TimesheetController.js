@@ -2,6 +2,7 @@ const Timesheet = require('../models/Timesheet');
 
 const TimesheetController = {
     showTimesheet: (req, res) => {
+        process.stdout.write("@")
         res.render('timesheet');
     },
 
@@ -56,11 +57,11 @@ const TimesheetController = {
 
     updateEmployeeBonus: (req, res) => {
         const { employeeName, bonusAmount } = req.body;
-        
+
         if (!employeeName || bonusAmount === undefined) {
             return res.status(400).json({ error: 'Thiếu thông tin cần thiết' });
         }
-    
+
         Timesheet.updateEmployeeBonus(employeeName, parseFloat(bonusAmount), (err, result) => {
             if (err) {
                 console.error('Lỗi khi cập nhật bonus:', err);
@@ -81,7 +82,7 @@ const TimesheetController = {
 
     updateBonusByDepartment: (req, res) => {
         const { departmentId, bonusAmount } = req.body;
-        
+
         if (!departmentId || bonusAmount === undefined) {
             return res.status(400).json({ error: 'Thiếu thông tin cần thiết' });
         }
@@ -96,7 +97,7 @@ const TimesheetController = {
     },
     updateEmployeeSalary: (req, res) => {
         const { employeeId, newSalary } = req.body;
-        
+
         if (!employeeId || !newSalary) {
             return res.status(400).json({ error: 'Thiếu thông tin cần thiết' });
         }
@@ -119,7 +120,7 @@ const TimesheetController = {
             res.json({ message: 'Đã cập nhật giờ làm việc thành công' });
         });
     },
-    
+
     updateSalaryBasedOnAttendance: (req, res) => {
         Timesheet.updateSalaryBasedOnAttendance((err, result) => {
             if (err) {
