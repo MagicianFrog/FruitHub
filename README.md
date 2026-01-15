@@ -8,9 +8,6 @@ FruitHub is a comprehensive **company management system** designed for businesse
 
 **FruitHub** is a comprehensive **company management system** designed for businesses operating in the fruit distribution and sales domain. The system focuses on real-world operational workflows such as inventory, orders, employees, payroll, and customer management.
 
-🌐 **Live website**:
-[https://web-project-production-0e6a.up.railway.app/](https://web-project-production-0e6a.up.railway.app/)
-
 🎥 **Demo materials**:
 [https://drive.google.com/drive/folders/1RRAZBHpsoPqo_y6r4sj9OOV0dku7DtQI](https://drive.google.com/drive/folders/1RRAZBHpsoPqo_y6r4sj9OOV0dku7DtQI)
 
@@ -78,3 +75,10 @@ FruitHub is a comprehensive **company management system** designed for businesse
 * **Khổng Quốc Anh** – Developer
 
 ---
+
+## 📌 Notes
+
+* This repository was created specifically for **testing and analysis purposes**.
+* The project was previously pushed to a different repository by a teammate, where multiple web applications were stored together, resulting in unnecessary size and redundancy.
+* For the course **INT3117 (Class INT3117_1)**, this repository isolates **FruitHub** as a standalone application to be used for **load and performance testing with the Locust testing tool**.
+* No functional changes were made to the core application logic; this separation is solely for clarity, maintainability, and testing scope.
