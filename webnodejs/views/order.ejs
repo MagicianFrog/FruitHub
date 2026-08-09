@@ -11,29 +11,26 @@
 
     <div class="main-content">
         <header>
-            <h2>Thông tin Đơn hàng</h2>
-            <input type="text" id="search-bar" placeholder="Tìm kiếm đơn hàng">
-            <div class="button-group">
-                <button class="button" id="view-all">Tất cả đơn hàng</button>
-                <button class="button" id="view-shipped">Đơn hàng đã giao</button>
-                <button class="button" id="view-not-shipped">Đơn hàng chưa giao</button>
-                <button class="button" id="toggle-view">Xem giá trị các đơn hàng</button>
-                <button class="button" id="view-product-values">Xem giá trị sản phẩm</button>
+            <div class="header-top">
+                <h2>Thông tin Đơn hàng</h2>
             </div>
-            <div class="date-filter" >
-                <input class="input-field"  type="date" id="start-date">
-                <input class="input-field"  type="date" id="end-date">
-                <button class="button" id="filter-date">Lọc theo ngày</button>
-            </div>
-            <div class="revenue-section">
-                <button class="more-field" id="toggle-revenue-calculator">Tính tổng doanh thu</button>
-                <div id="revenue-calculator" class="hidden">
-                    <h3>Tính tổng doanh thu</h3>
-                    <input class="input-field"  type="date" id="revenue-start-date">
-                    <input class="input-field"  type="date" id="revenue-end-date">
-                    <button class="button" id="calculate-revenue">Tính</button>
-                    <div id="total-revenue"></div>
+            <div class="header-actions">
+                <input type="text" id="search-bar" placeholder="Tìm kiếm đơn hàng">
+                <div class="button-group">
+                    <button class="button" id="view-all">Tất cả đơn hàng</button>
+                    <button class="button" id="view-shipped">Đơn hàng đã giao</button>
+                    <button class="button" id="view-not-shipped">Đơn hàng chưa giao</button>
+                    <button class="button" id="toggle-view">Xem giá trị các đơn hàng</button>
+                    <button class="button" id="view-product-values">Xem giá trị sản phẩm</button>
                 </div>
+                <div class="date-filter button-group" >
+                    <input class="input-field"  type="date" id="start-date">
+                    <input class="input-field"  type="date" id="end-date">
+                    <button class="button" id="filter-date">Lọc theo khoảng thời gian</button>
+                    <button class="button" id="calculate-period-revenue">Tính doanh thu</button>
+                    <button class="button" id="calculate-total-revenue">Tính tổng doanh thu</button>
+                </div>
+                <div id="revenue-display" class="hidden"></div>
             </div>
             <div class="top-customers-section">
                 <button class="button" id="toggle-top-customers">Xem khách hàng hàng đầu</button>

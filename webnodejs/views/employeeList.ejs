@@ -11,15 +11,23 @@
 
     <div class="main-content">
         <header>
-            <h2>Thông tin Nhân viên</h2>
-            <input type="text" id="search-bar" placeholder="Tìm kiếm nhân viên...">
-            <select id="department-filter" class="filter">
-                <option value="">Chọn phòng ban</option>
-            </select>
-            <input type="text" id="id-search"  class="input-field"  placeholder="Tìm theo Mã Nhân viên">
-            <button class="button" id="id-search-btn">Lọc</button>
-            <button class="button" onclick="window.location.href='/employee/add'">Thêm Nhân viên mới</button>  
-            <button class="button" id ="refresh">Làm mới</button>
+            <div class="header-top">
+                <h2>Thông tin Nhân viên</h2>
+            </div>
+            <div class="header-actions">
+                <input type="text" id="search-bar" placeholder="Tìm kiếm nhân viên...">
+                <div class="button-group">
+                    <select id="department-filter" class="filter">
+                        <option value="">Chọn phòng ban</option>
+                    </select>
+                    <input type="text" id="id-search"  class="input-field"  placeholder="Tìm theo Mã Nhân viên">
+                    <button class="button" id="id-search-btn">Lọc</button>
+                </div>
+                <div class="button-group">
+                    <button class="button" onclick="window.location.href='/employee/add'">Thêm Nhân viên mới</button>  
+                    <button class="button" id ="refresh">Làm mới</button>
+                </div>
+            </div>
         </header>
         
         <section class="employee-table">

@@ -86,12 +86,37 @@ header {
   padding: 24px 32px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
   gap: 16px;
   border: 1px solid var(--border);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.button-group, .date-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border);
 }
 
 header h2 {

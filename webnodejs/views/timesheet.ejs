@@ -11,18 +11,25 @@
 
     <div class="main-content">
         <header>
-            <h2>Bảng chấm công</h2>
-            <input class="input-field"  type="text" id="search-bar" placeholder="Tìm kiếm nhân viên...">
-            <button class="button" id = "hardEmployee">Tìm 10 nhân viên làm nhiều nhất</button>
-        <button class="button" id="perfectScoreBtn">Tìm Nhân viên Điểm 10</button>
-        <button class="button" id="show-all-employees">Hiển thị tất cả nhân viên</button>
-        <button class="button" id="update-worked-hours">Cập nhật giờ làm việc</button>
-        <div class="salary-controls">
-            <button class="button" id="toggle-salary-table">Ẩn/Hiện bảng lương</button>
-            <button class="button" id="reset-bonus">Reset bonus</button>
-            <button class="button" id="calculate-total-payroll">Tính tổng lương phải trả</button>
-            <button class="button" id="update-salary-attendance">Cập nhật lương theo chấm công</button>
-            <div id="total-payroll" class="hidden"></div>
+            <div class="header-top">
+                <h2>Bảng chấm công</h2>
+            </div>
+            <div class="header-actions">
+                <input class="input-field"  type="text" id="search-bar" placeholder="Tìm kiếm nhân viên...">
+                <div class="button-group">
+                    <button class="button" id = "hardEmployee">Tìm 10 nhân viên làm nhiều nhất</button>
+                    <button class="button" id="perfectScoreBtn">Tìm Nhân viên Điểm 10</button>
+                    <button class="button" id="show-all-employees">Hiển thị tất cả nhân viên</button>
+                    <button class="button" id="update-worked-hours">Cập nhật giờ làm việc</button>
+                </div>
+                <div class="button-group salary-controls">
+                    <button class="button" id="toggle-salary-table">Ẩn/Hiện bảng lương</button>
+                    <button class="button" id="reset-bonus">Reset bonus</button>
+                    <button class="button" id="calculate-total-payroll">Tính tổng lương phải trả</button>
+                    <button class="button" id="update-salary-attendance">Cập nhật lương theo chấm công</button>
+                    <div id="total-payroll" class="hidden"></div>
+                </div>
+            </div>
 
             <div class="bonus-update">
                 <input class="input-field"  type="text" id="bonus-employee-name" placeholder="Tên nhân viên">
