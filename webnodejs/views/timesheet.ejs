@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bảng chấm công</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .payroll-dashboard {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .payroll-dashboard h3 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        .dashboard-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/sidebar.ejs') %>
@@ -15,54 +40,63 @@
                 <h2>Bảng chấm công</h2>
             </div>
             <div class="header-actions">
-                <input class="input-field"  type="text" id="search-bar" placeholder="Tìm kiếm nhân viên...">
+                <input class="input-field" type="text" id="search-bar" placeholder="Tìm kiếm nhân viên...">
                 <div class="button-group">
-                    <button class="button" id = "hardEmployee">Tìm 10 nhân viên làm nhiều nhất</button>
-                    <button class="button" id="perfectScoreBtn">Tìm Nhân viên Điểm 10</button>
-                    <button class="button" id="show-all-employees">Hiển thị tất cả nhân viên</button>
+                    <button class="button" id="hardEmployee">Top 10 NV chăm chỉ</button>
+                    <button class="button" id="perfectScoreBtn">Nhân viên Điểm 10</button>
+                    <button class="button" id="show-all-employees">Tất cả nhân viên</button>
                     <button class="button" id="update-worked-hours">Cập nhật giờ làm việc</button>
                 </div>
-                <div class="button-group salary-controls">
-                    <button class="button" id="toggle-salary-table">Ẩn/Hiện bảng lương</button>
-                    <button class="button" id="reset-bonus">Reset bonus</button>
-                    <button class="button" id="calculate-total-payroll">Tính tổng lương phải trả</button>
-                    <button class="button" id="update-salary-attendance">Cập nhật lương theo chấm công</button>
-                    <div id="total-payroll" class="hidden"></div>
-                </div>
+            </div>
+        </header>
+
+        <!-- Phần bảng điều khiển tính lương tách biệt -->
+        <div class="payroll-dashboard">
+            <h3>Bảng Điều Khiển Lương & Thưởng (Payroll Dashboard)</h3>
+            
+            <div class="dashboard-section">
+                <button class="button" id="toggle-salary-table">Ẩn/Hiện Bảng Lương</button>
+                <button class="button" id="update-salary-attendance">Tính lương theo chấm công</button>
+                <button class="button" id="calculate-total-payroll">Tính tổng quỹ lương</button>
+                <button class="button" id="reset-bonus" style="background-color: #ef4444;">Reset toàn bộ Bonus</button>
+                <div id="total-payroll" class="hidden" style="font-weight: 600; color: var(--primary);"></div>
             </div>
 
-            <div class="bonus-update">
-                <input class="input-field"  type="text" id="bonus-employee-name" placeholder="Tên nhân viên">
-                <input class="input-field"  type="number" id="bonus-amount" placeholder="Số tiền bonus">
-                <button class="button" id="update-bonus">Cập nhật bonus</button>
+            <div class="dashboard-section" style="padding-top: 16px; border-top: 1px dashed var(--border);">
+                <input class="input-field" type="text" id="bonus-employee-name" placeholder="Tên nhân viên">
+                <input class="input-field" type="number" id="bonus-amount" placeholder="Số tiền bonus">
+                <button class="button" id="update-bonus">Thưởng cá nhân</button>
             </div>
-            <div class="department-bonus-update">
+
+            <div class="dashboard-section">
                 <select id="department-select" class="filter">
                     <option value="">Chọn phòng ban</option>
                 </select>
-                <input class="input-field"  type="number" id="department-bonus-amount" placeholder="Số tiền bonus">
-                <button class="button" id="update-department-bonus">Thưởng thêm bonus theo phòng ban</button>
+                <input class="input-field" type="number" id="department-bonus-amount" placeholder="Số tiền bonus">
+                <button class="button" id="update-department-bonus">Thưởng theo phòng ban</button>
             </div>
         </div>
 
+        <!-- Bảng lương (ẩn mặc định) -->
         <div id="salary-table" class="hidden">
-            <h3>Bảng lương</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã NV</th>
-                        <th>Tên nhân viên</th>
-                        <th>Lương cơ bản</th>
-                        <th>Bonus</th>
-                        <th>Tổng lương</th>
-                    </tr>
-                </thead>
-                <tbody id="salary-data">
-                </tbody>
-            </table>
+            <section class="salary-table-section" style="background: var(--card-bg); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); margin-top: 24px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã NV</th>
+                            <th>Tên nhân viên</th>
+                            <th>Lương cơ bản</th>
+                            <th>Bonus</th>
+                            <th>Tổng lương</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salary-data">
+                    </tbody>
+                </table>
+            </section>
         </div>
-        </header>
 
+        <!-- Bảng chấm công -->
         <section class="timesheet-table">
             <table id="timesheet-table">
                 <thead>
@@ -80,13 +114,15 @@
             </table>
         </section>
     </div>
+
+    <!-- Modal sửa lương -->
     <div id="edit-salary-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Sửa lương nhân viên</h2>
-            <input class="input-field"  type="hidden" id="edit-employee-id">
-            <input class="input-field"  type="number" id="edit-salary" placeholder="Nhập lương mới">
-            <button class="button" id="save-salary">Lưu</button>
+            <input class="input-field" type="hidden" id="edit-employee-id">
+            <input class="input-field" type="number" id="edit-salary" placeholder="Nhập mức lương mới">
+            <button class="button" id="save-salary">Lưu thay đổi</button>
         </div>
     </div>
 
