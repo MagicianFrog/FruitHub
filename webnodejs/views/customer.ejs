@@ -11,11 +11,17 @@
 
     <div class="main-content">
         <header>
-            <h2>Thông tin Khách hàng</h2>
-            <input class="input-field" type="text" id="search-bar" placeholder="Tìm kiếm khách hàng..." onkeyup="searchCustomer()">
-            <button class="button" id="sort-button" onclick="sortTable()">Sắp xếp theo số lượng đơn hàng</button>
-            <button class="button" onclick="refreshTable()">Làm mới</button>
-            <button class="button" id="view-customer-debts">Xem những khách hàng còn nợ</button>
+            <div class="header-top">
+                <h2>Thông tin Khách hàng</h2>
+            </div>
+            <div class="header-actions">
+                <input class="input-field" type="text" id="search-bar" placeholder="Tìm kiếm khách hàng..." onkeyup="searchCustomer()">
+                <div class="button-group">
+                    <button class="button" id="sort-button" onclick="sortTable()">Sắp xếp theo số lượng đơn hàng</button>
+                    <button class="button" id="view-customer-debts">Xem những khách hàng còn nợ</button>
+                    <button class="button" onclick="refreshTable()">Làm mới</button>
+                </div>
+            </div>
         </header>
 
         <section class="customer-table">

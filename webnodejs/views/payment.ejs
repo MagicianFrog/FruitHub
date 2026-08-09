@@ -11,11 +11,17 @@
 
     <div class="main-content">
         <header>
-            <h2>Danh sách Thanh toán</h2>
-            <input class="input-field" type="text" id="search-bar" placeholder="Tìm kiếm thanh toán..." oninput="searchPayment()">
-            <input class="input-field" type="text" id="id-search" placeholder="Nhập Mã KH">
-            <button class="button" onclick="searchPaymentByCustomerId()">Tìm theo Mã KH</button>
-            <button class="button" onclick="refreshPaymentTable()">Làm mới</button>
+            <div class="header-top">
+                <h2>Danh sách Thanh toán</h2>
+            </div>
+            <div class="header-actions">
+                <input class="input-field" type="text" id="search-bar" placeholder="Tìm kiếm thanh toán..." oninput="searchPayment()">
+                <div class="button-group">
+                    <input class="input-field" type="text" id="id-search" placeholder="Nhập Mã KH">
+                    <button class="button" onclick="searchPaymentByCustomerId()">Tìm theo Mã KH</button>
+                    <button class="button" onclick="refreshPaymentTable()">Làm mới</button>
+                </div>
+            </div>
         </header>
 
         <section class="payment-table">

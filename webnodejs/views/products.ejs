@@ -11,20 +11,24 @@
 
     <div class="main-content">
         <header>
-            <h2>Thông tin Sản phẩm</h2>
-            <input class="input-field"  type="text" id="search-bar" placeholder="Tìm kiếm sản phẩm..." onkeyup="searchProducts()">
-
-            <select id="supplier-filter" class="filter">
-                <option value="">Chọn Nhà cung cấp</option>
-            </select>
-            <button class="button" onclick="filterBySupplier()">Lọc</button>
-            <button class="button" onclick="filterOutOfStock()">Hiển thị hàng hết kho</button>
-            <button class="button" onclick="refreshTable()">Làm mới</button>
-
-            <section class="controls">
-                <button class="button" onclick="toggleForm('add-product-form-container')">Thêm Sản phẩm mới</button>
-                <button class="button" onclick="toggleForm('add-supplier-form-container')">Thêm Nhà cung cấp mới</button>
-            </section>
+            <div class="header-top">
+                <h2>Thông tin Sản phẩm</h2>
+            </div>
+            <div class="header-actions">
+                <input class="input-field"  type="text" id="search-bar" placeholder="Tìm kiếm sản phẩm..." onkeyup="searchProducts()">
+                <div class="button-group">
+                    <select id="supplier-filter" class="filter">
+                        <option value="">Chọn Nhà cung cấp</option>
+                    </select>
+                    <button class="button" onclick="filterBySupplier()">Lọc</button>
+                    <button class="button" onclick="filterOutOfStock()">Hiển thị hàng hết kho</button>
+                    <button class="button" onclick="refreshTable()">Làm mới</button>
+                </div>
+                <div class="button-group controls">
+                    <button class="button" onclick="toggleForm('add-product-form-container')">Thêm Sản phẩm mới</button>
+                    <button class="button" onclick="toggleForm('add-supplier-form-container')">Thêm Nhà cung cấp mới</button>
+                </div>
+            </div>
         </header>
         
         <div id="add-product-form-container" style="display: none;">
