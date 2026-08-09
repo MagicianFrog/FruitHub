@@ -2,24 +2,31 @@ require('dotenv').config();
 
 const mysql = require('mysql2');
 
-const db = mysql.createConnection({
+const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: Number(process.env.DB_PORT),
+    port: Number(process.env.DB_PORT) || 4000,
     multipleStatements: process.env.DB_MULTIPLE_STATEMENTS === 'true',
     ssl: {
         rejectUnauthorized: true
-    }
+    },
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
-db.connect((err) => {
+// Promisify để dùng async/await hoặc dùng callback bình thường
+const db = pool;
+
+pool.getConnection((err, connection) => {
     if (err) {
-        console.error('Lỗi kết nối database:', err.stack);
+        console.error('Lỗi kết nối database pool:', err.stack);
         return;
     }
-    console.log('Kết nối database thành công với ID ' + db.threadId);
+    console.log('Kết nối database pool thành công với ID ' + connection.threadId);
+    connection.release(); // Giải phóng connection ngay sau khi test
 });
 
 module.exports = db;
