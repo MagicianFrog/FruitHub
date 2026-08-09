@@ -9,7 +9,7 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME,
     port: Number(process.env.DB_PORT) || 4000,
     multipleStatements: process.env.DB_MULTIPLE_STATEMENTS === 'true',
-    ssl: {
+    ssl: process.env.DB_HOST === 'localhost' ? false : {
         rejectUnauthorized: true
     },
     waitForConnections: true,
